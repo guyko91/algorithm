@@ -21,6 +21,14 @@ public class No2480 {
         b = Integer.parseInt(input.split(" ")[1]);
         c = Integer.parseInt(input.split(" ")[2]);
 
-
+        if (a == b && a == c) {
+            System.out.println(10000+(a*1000));
+        }else if(a == b || a == c) {
+            System.out.println(1000+(a*100));
+        }else if(b == c) {
+            System.out.println(1000+(b*100));
+        }else {
+            System.out.println(Math.max(a, Math.max(b, c))*100);
+        }
     }
 }
