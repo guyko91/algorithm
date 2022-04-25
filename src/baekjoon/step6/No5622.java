@@ -13,6 +13,36 @@ import java.util.Scanner;
 public class No5622 {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
+        String word = sc.nextLine();
+        sc.close();
 
+        int result = 0;
+        for(String a : word.split("")) {
+            result += getIndexFromStringAscii(a) + 1;
+        }
+
+        System.out.println(result);
+
+    }
+
+    public static Integer getIndexFromStringAscii(String a) {
+        int num = a.charAt(0);
+        if(num <= 67) {
+            return 2;
+        }else if(num <=70) {
+            return 3;
+        }else if(num <= 73) {
+            return 4;
+        }else if(num <= 76) {
+            return 5;
+        }else if(num <= 79) {
+            return 6;
+        }else if(num <= 83) {
+            return 7;
+        }else if(num <= 86) {
+            return 8;
+        }else {
+            return 9;
+        }
     }
 }
