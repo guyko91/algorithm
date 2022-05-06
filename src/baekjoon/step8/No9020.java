@@ -10,45 +10,50 @@ import java.util.Scanner;
 // 예를 들면, 4 = 2 + 2, 6 = 3 + 3, 8 = 3 + 5, 10 = 5 + 5, 12 = 5 + 7, 14 = 3 + 11, 14 = 7 + 7이다. 10000보다 작거나 같은 모든 짝수 n에 대한 골드바흐 파티션은 존재한다.
 // 2보다 큰 짝수 n이 주어졌을 때, n의 골드바흐 파티션을 출력하는 프로그램을 작성하시오. 만약 가능한 n의 골드바흐 파티션이 여러 가지인 경우에는 두 소수의 차이가 가장 작은 것을 출력한다.
 public class No9020 {
-    public static boolean[] prime;
+
+    /*
+		false : 소수
+		range : 0 ~ 10000
+	*/
+    public static boolean[] prime = new boolean[10001];
+
     public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
 
-        int caseCnt = sc.nextInt();
-        int[] arr = new int[caseCnt];
+        Scanner in = new Scanner(System.in);
 
-        for(int i = 0; i < caseCnt; i++) {
-            arr[i] = sc.nextInt();
-        }
+        get_prime();
 
-        for(int i = 0; i < arr.length; i++) {
-            System.out.println(arr[i]);
-        }
+        int T = in.nextInt();	// 테스트케이스
 
-    }
+        while (T-- > 0) {
+            int n = in.nextInt();
+            int first_partition = n / 2;
+            int second_partition = n / 2;
 
-    public static String getResult(int number) {
+            while (true) {
 
-        prime = new boolean[number + 1];
-        getPrime();
-
-
-
-
-        return "";
-    }
-
-    public static void getPrime() {
-
-        prime[0] = prime[1] = true;
-
-        for(int i = 2; i < Math.sqrt(prime.length); i++) {
-            if(prime[i]) continue;
-            for(int j = i * i; j < prime.length; j += i) {
-                prime[j] = true;
+                // 두 파티션이 모두 소수일 경우
+                if (!prime[first_partition] && !prime[second_partition]) {
+                    System.out.println(first_partition + " " + second_partition);
+                    break;
+                }
+                first_partition--;
+                second_partition++;
             }
         }
 
+    }
 
+    // 에라토스테네스의 체
+    public static void get_prime() {
+        prime[0] = prime[1] = true;
+
+        for (int i = 2; i <= Math.sqrt(prime.length); i++) {
+            if (prime[i])
+                continue;
+            for (int j = i * i; j < prime.length; j += i) {
+                prime[j] = true;
+            }
+        }
     }
 }
