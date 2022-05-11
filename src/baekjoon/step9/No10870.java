@@ -11,14 +11,14 @@ import java.util.Scanner;
 public class No10870 {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-
         int input = sc.nextInt();
-
-
+        System.out.println(doSometing(input));
+        sc.close();
     }
 
     public static int doSometing(int input) {
-        if (input <= 1) return 1;
-        return 1;
+        if (input == 0) return 0;
+        if (input < 2) return 1;
+        return doSometing(input - 1) + doSometing(input - 2);
     }
 }
