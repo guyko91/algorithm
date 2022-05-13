@@ -11,8 +11,10 @@ public class Main {
         sort(data);
 
         for (int a : data) {
-            System.out.println(a);
+            System.out.print(a);
         }
+        
+        // result : 1 5 10 99 66 
     }
 
     public static void sort(int[] data) {
