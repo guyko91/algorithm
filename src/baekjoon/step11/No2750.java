@@ -29,11 +29,6 @@ public class No2750 {
             System.out.println(a);
         }
 
-        // 카운팅 정렬 (COUNTING SORT)
-        // range : -1000 ~ 1000
-        // 0 은 index[1000] 을 의미
-//        boolean[] arr2 = new boolean[2001];
-
         sc.close();
 
     }

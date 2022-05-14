@@ -30,7 +30,7 @@ public class CountingSort {
         // 결과 배열에 세팅. (맨 뒤부터 수행)
         for(int i = arr.length - 1; i >= 0; i--) {
             // i 번째 원소를 인덱스로 하는 counting 배열을 1 감소시킨 뒤
-            // counting 배열의 값을 인덱스로 하여 resultㅔ value 값을 저장한다.
+            // counting 배열의 값을 인덱스로 하여 result에 value 값을 저장한다.
             int value = arr[i];
             countingArr[value]--;
             result[countingArr[value]] = value;
