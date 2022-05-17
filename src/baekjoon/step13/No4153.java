@@ -1,4 +1,4 @@
-package baekjoon.step8;
+package baekjoon.step13;
 
 // 직각 삼각형
 

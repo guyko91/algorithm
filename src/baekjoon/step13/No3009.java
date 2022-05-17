@@ -1,4 +1,4 @@
-package baekjoon.step8;
+package baekjoon.step13;
 
 // 네 번째 점
 
