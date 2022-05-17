@@ -1,5 +1,14 @@
 #기본 정렬 (JAVA)
 
+## 정렬의 특징
+* 비교 정렬 : 데이터를 '비교'하면서 찾는 방식
+  * 선택 정렬, 삽입 정렬
+* 제자리 정렬 : 정렬의 대상 외에 추가적인 공간이 필요 없는 방식
+  * 선택 정렬, 삽입 정렬
+* 안정 정렬 : 정렬 규칙
+  * 삽입 정렬
+* 불안정 정렬 : 정렬 규칙이 다수이거나 특정 순서를 유지해야할 때 문제가 될 수 있는 방식
+
 ## 1. 선택정렬 (Selection Sort)
 * 제자리 정렬 (in-place sorting) 알고리즘 중 하나.
 * 시간복잡도 O(N*N)
@@ -81,6 +90,66 @@ public class Main {
 
         for(int a : result) {
             System.out.println(a);
+        }
+    }
+}
+```
+## 3. 버블 정렬 (BubbleSort)
+* 바로 옆 값과 비교해서 더 작은 값을 앞으로 옮기는 방법.
+* "가장 비효율적"인 정렬 방식. (전체를 다 비교해야 함.)
+* 시간 복잡도 O(N^2)
+
+```java
+import java.util.Arrays;
+
+public class Main {
+    public static void main(String[] args) {
+        int[] array = new int[]{3, 6, 41, 2, 4, 1, 5, 743};
+        System.out.println(Arrays.toString(array));
+    }
+
+    public static void sort(int[] array) {
+        for (int i = 0; i < array.length; i++) {
+            for (int j = 0; j < array.length - i - 1; j++) {
+                if (array[j] > array[j + 1]) {
+                    int temp = array[j + 1];
+                    array[j + 1] = array[j];
+                    array[j] = temp;
+                }
+            }
+        }
+    }
+}
+```
+## 4. 삽입 정렬 (InsertionSort)
+* 비교 대상 target과 이전 원손들을 비교하여 target이 작으면 자리를 교환 하는 방식.
+* 비교정렬 / 제자리 정렬 / 안정 정렬
+* 특징
+  * 거의 정렬된 배열을 정렬하는 경우 효율적 (최선의 경우 O(N)의 시간 복잡도)
+  * 역순에 가까울 수록 매우 비효율적 (최악의 경우 O(N^2)의 시간 복잡도)
+  * 데이터의 상태에 따라서 편차가 매우 크다.
+```java
+import java.util.Arrays;
+
+public class Main {
+    public static void main(String[] args) {
+        int[] array = new int[]{3, 6, 41, 2, 4, 1, 5, 743};
+        sort(array);
+        System.out.println(Arrays.toString(array));
+    }
+
+    public static void sort(int[] array) {
+        for(int i = 1; i < array.length; i++) {
+            // 비교대상 타겟
+            int target = array[i];
+            
+            int j = i - 1;
+            while (j >= 0 && target < array[j]) {
+                array[j + 1] = array[j];
+                j--;
+            }
+            
+            arr[j + 1] = target;
         }
     }
 }
