@@ -17,9 +17,9 @@ public class No10815 {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
 
+        // 숫자카드의 개수
         int N = sc.nextInt();
         int[] cards = new int[N];
-
         sc.nextLine();
 
         for(int i = 0; i < N; i++) {
@@ -28,9 +28,37 @@ public class No10815 {
 
         Arrays.sort(cards);
 
+        // 체크하야할 개수
         int M = sc.nextInt();
+        int[] checks = new int[M];
+        sc.nextLine();
 
+        for(int i = 0; i < M; i++) {
+            checks[i] = sc.nextInt();
+        }
 
+        for(int a : checks) {
+            System.out.print(binarySearch(cards, a) + " ");
+        }
 
+    }
+
+    public static int binarySearch(int[] array, int target) {
+        int start = 0;
+        int end = array.length - 1;
+        int mid = (start+end)/2;
+
+        while(end-start >= 0) {
+            if(array[mid] == target) {
+                return 1;
+            }else if(array[mid] <= target) {
+                start = mid + 1;
+            }else {
+                end = mid - 1;
+            }
+            mid = (end+start) / 2;
+        }
+
+        return 0;
     }
 }
