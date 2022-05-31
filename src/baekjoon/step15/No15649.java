@@ -19,6 +19,7 @@ public class No15649 {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
 
+        // 1 ~ N 까지 자연수 중에서
         int N = sc.nextInt();
         int M = sc.nextInt();
 
